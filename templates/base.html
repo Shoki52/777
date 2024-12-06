@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завод Подшипников</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Логотип завода">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Главная</a></li>
+                <li><a href="{{ url_for('about') }}">Про завод</a></li>
+                <li><a href="{{ url_for('contacts') }}">Контакты</a></li>
+                <li><a href="{{ url_for('partners') }}">Наши партнеры</a></li>
+                <li><a href="{{ url_for('products') }}">Продукция</a></li>
+                <li><a href="{{ url_for('employees') }}">Сотрудники</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Завод Подшипников. Все права защищены.</p>
+    </footer>
+</body>
+</html>
+
+
