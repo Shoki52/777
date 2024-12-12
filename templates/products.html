@@ -5,33 +5,48 @@
 
 <section>
     <h2>Виды подшипников</h2>
-    <p>Мы производим подшипники различных типов, включая:</p>
     <ul>
-        <li>Роликовые радиальные подшипники для железнодорожного транспорта</li>
-        <li>Шариковые подшипники для промышленного оборудования</li>
-        <li>Подшипники для сельскохозяйственной техники</li>
-        <li>Подшипники для автомобильной промышленности</li>
-        <li>Подшипники с угловым контактом для высокоскоростных приложений</li>
-        <li>Подшипники для тяжелых условий эксплуатации</li>
+        {% for item in products_data['bearings'] %}
+        <li>
+            {{ item }}
+            <form method="POST" style="display:inline;">
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="category" value="bearings">
+                <input type="hidden" name="item_to_delete" value="{{ item }}">
+                <button type="submit">Удалить</button>
+            </form>
+        </li>
+        {% endfor %}
     </ul>
-    <img src="{{ url_for('static', filename='images/bearing_types.jpg') }}" alt="Типы подшипников">
+    <form method="POST">
+        <input type="hidden" name="action" value="add">
+        <input type="hidden" name="category" value="bearings">
+        <input type="text" name="new_item" placeholder="Новый вид подшипника" required>
+        <button type="submit">Добавить</button>
+    </form>
 </section>
 
 <section>
     <h2>Асбестоцементные изделия</h2>
-    <p>В дополнение к подшипникам, мы также производим асбестоцементные изделия, такие как:</p>
     <ul>
-        <li>Профилированные листы (шифер)</li>
-        <li>Плиты и трубы из асбестоцемента</li>
+        {% for item in products_data['asbestos'] %}
+        <li>
+            {{ item }}
+            <form method="POST" style="display:inline;">
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="category" value="asbestos">
+                <input type="hidden" name="item_to_delete" value="{{ item }}">
+                <button type="submit">Удалить</button>
+            </form>
+        </li>
+        {% endfor %}
     </ul>
-    <img src="{{ url_for('static', filename='images/roofing_slate.jpg') }}" alt="Асбестоцементные изделия">
-</section>
-
-<section>
-    <h2>Качество продукции</h2>
-    <p>Каждый подшипник и продукт проходит строгую проверку на качество. Мы гордимся тем, что наша продукция соответствует международным стандартам, обеспечивая надежность и долговечность в различных отраслях.</p>
-    <img src="{{ url_for('static', filename='images/quality_control.jpg') }}" alt="Контроль качества продукции">
+    <form method="POST">
+        <input type="hidden" name="action" value="add">
+        <input type="hidden" name="category" value="asbestos">
+        <input type="text" name="new_item" placeholder="Новый асбестоцементный продукт" required>
+        <button type="submit">Добавить</button>
+    </form>
 </section>
 
 {% endblock %}
-
